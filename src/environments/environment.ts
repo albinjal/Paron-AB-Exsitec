@@ -3,15 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  firebase: {
-    apiKey: "AIzaSyBrN82mSzXvbexSi6rPGsFXbatLL6UpVzg",
-    authDomain: "exsitec-paronab.firebaseapp.com",
-    projectId: "exsitec-paronab",
-    storageBucket: "exsitec-paronab.appspot.com",
-    messagingSenderId: "914913505082",
-    appId: "1:914913505082:web:e3a113849ce4efd6d72a03"
-  }
+    production: false,
+    // Commiting these keys is not a misstake
+    firebase: {
+        apiKey: 'AIzaSyBrN82mSzXvbexSi6rPGsFXbatLL6UpVzg',
+        authDomain: 'exsitec-paronab.firebaseapp.com',
+        projectId: 'exsitec-paronab',
+        storageBucket: 'exsitec-paronab.appspot.com',
+        messagingSenderId: '914913505082',
+        appId: '1:914913505082:web:e3a113849ce4efd6d72a03',
+    },
 };
 
 /*

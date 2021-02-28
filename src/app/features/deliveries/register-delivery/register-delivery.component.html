@@ -1,0 +1,27 @@
+<section>
+    <mat-card>
+        <mat-card-title>Register delivery</mat-card-title>
+        <form [formGroup]="deliveryForm">
+            <mat-card-content>
+                <mat-form-field appearance="fill">
+                    <mat-label>Product</mat-label>
+                    <input type="text" aria-label="Product" matInput formControlName="product"
+                        [matAutocomplete]="auto">
+                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                        <mat-option *ngFor="let product of products$ | async" [value]="product.title">{{product.title}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Warehouse</mat-label>
+                    <input type="text" aria-label="Warehouse" matInput formControlName="warehouse"
+                        [matAutocomplete]="warehouse_auto">
+                    <mat-autocomplete autoActiveFirstOption #warehouse_auto="matAutocomplete">
+                        <mat-option *ngFor="let warehouse of warehouses$ | async" [value]="warehouse.city">{{warehouse.city}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </mat-card-content>
+        </form>
+    </mat-card>
+</section>
