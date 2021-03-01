@@ -2,3 +2,7 @@ mat-toolbar-row {
     display: flex;
     justify-content: space-between;
 }
+
+.selected {
+    text-decoration: underline;
+}

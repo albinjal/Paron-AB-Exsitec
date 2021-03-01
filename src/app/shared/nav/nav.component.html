@@ -1,8 +1,16 @@
 <nav>
     <mat-toolbar color="primary">
         <mat-toolbar-row>
-            <span>Päron AB</span>
-            <span><button mat-flat-button (click)="auth.logout()" *ngIf="auth.user$ | async">Logout</button></span>
+            <span>
+                <span routerLink="/">Päron AB</span>
+                <button mat-button routerLink="/deliveries"
+                    [ngClass]="{'selected': this.router.url === '/deliveries'}">Deliveries</button>
+                <button mat-button routerLink="/supply"
+                    [ngClass]="{'selected': this.router.url === '/supply'}">Supply</button>
+            </span>
+            <span>
+                <button mat-flat-button (click)="auth.logout()" *ngIf="auth.user$ | async">Logout</button>
+            </span>
         </mat-toolbar-row>
     </mat-toolbar>
 </nav>

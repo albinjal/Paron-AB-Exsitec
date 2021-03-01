@@ -13,6 +13,7 @@ import { ListDeliveriesComponent } from './features/deliveries/list-deliveries/l
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './features/login/login.component';
 import { NavComponent } from './shared/nav/nav.component';
+import { SupplyComponent } from './features/supply/supply.component';
 
 @NgModule({
     declarations: [
@@ -22,6 +23,7 @@ import { NavComponent } from './shared/nav/nav.component';
         ListDeliveriesComponent,
         LoginComponent,
         NavComponent,
+        SupplyComponent,
     ],
     imports: [
         BrowserModule,

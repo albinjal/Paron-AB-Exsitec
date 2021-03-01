@@ -13,7 +13,7 @@ export class AuthService {
             await this.auth.signInWithPopup(
                 new firebase.auth.GoogleAuthProvider()
             );
-            this.router.navigate(['']);
+            this.router.navigateByUrl('/');
         } catch {
             // TODO: add error hand
         }
@@ -21,7 +21,7 @@ export class AuthService {
     async logout() {
         try {
             await this.auth.signOut();
-            this.router.navigate(['']);
+            location.reload();
         } catch {
             // TODO: add error hand
         }

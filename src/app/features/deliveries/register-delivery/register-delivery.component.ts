@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
-import { Product } from 'src/app/shared/product.model';
-import { ProductService } from 'src/app/shared/product.service';
-import { Warehouse } from 'src/app/shared/warehouse.model';
-import { WarehouseService } from 'src/app/shared/warehouse.service';
+import { Product } from 'src/app/core/product.model';
+import { ProductService } from 'src/app/core/product.service';
+import { Warehouse } from 'src/app/core/warehouse.model';
+import { WarehouseService } from 'src/app/core/warehouse.service';
 import { DeliveryService } from '../shared/delivery.service';
 
 @Component({
