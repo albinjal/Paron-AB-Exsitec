@@ -5,6 +5,9 @@
     display: flex;
     flex-direction: column;
 }
+mat-card {
+    margin: 1rem;
+}
 
 mat-card-content {
     overflow: auto;

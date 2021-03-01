@@ -48,7 +48,8 @@
             </mat-radio-group>
             <br>
 
-            <button mat-flat-button color="primary" type="submit" *ngIf="!loading; else spinner">Register</button>
+            <button mat-flat-button color="primary" type="submit" *ngIf="!loading; else spinner"
+                [disabled]="!deliveryForm.valid">Register</button>
             <ng-template #spinner>
                 <mat-spinner></mat-spinner>
             </ng-template>

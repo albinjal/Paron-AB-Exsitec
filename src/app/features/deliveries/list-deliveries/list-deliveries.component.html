@@ -1,12 +1,10 @@
 <table mat-table [dataSource]="deliveries$" class="mat-elevation-z8">
-
-
     <ng-container matColumnDef="date">
         <th mat-header-cell *matHeaderCellDef> Date </th>
         <td mat-cell *matCellDef="let delivery"> {{delivery.date.toDate() | date: 'shortDate' }} </td>
     </ng-container>
 
-    <ng-container matColumnDef="warehouse" >
+    <ng-container matColumnDef="warehouse">
         <th mat-header-cell *matHeaderCellDef> Warehouse </th>
         <td mat-cell *matCellDef="let delivery"> {{delivery.warehouse}} </td>
     </ng-container>

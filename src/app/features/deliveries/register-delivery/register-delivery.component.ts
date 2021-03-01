@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/core/product.model';
 import { ProductService } from 'src/app/core/product.service';
@@ -23,15 +24,19 @@ export class RegisterDeliveryComponent implements OnInit {
         private prodService: ProductService,
         private warehouseService: WarehouseService,
         private deliveryService: DeliveryService,
+        private snackBar: MatSnackBar,
         formBuiler: FormBuilder,
         public dialogRef: MatDialogRef<RegisterDeliveryComponent>
     ) {
         this.deliveryForm = formBuiler.group({
-            warehouse: [],
-            product: [],
-            amount: [0],
+            warehouse: ['', Validators.required],
+            product: ['', Validators.required],
+            amount: [
+                '',
+                Validators.compose([Validators.required, Validators.min(1)]),
+            ],
             outgoing: ['false'],
-            date: [new Date()],
+            date: [new Date(), Validators.required],
         });
     }
 
@@ -55,6 +60,7 @@ export class RegisterDeliveryComponent implements OnInit {
         try {
             const res = await this.deliveryService.registerDelivery(formValues);
             this.dialogRef.close();
+            this.snackBar.open('Delivery successfully added.')
         } catch {
             // TODO: add error handling
         }

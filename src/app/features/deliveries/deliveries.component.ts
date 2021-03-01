@@ -13,6 +13,8 @@ export class DeliveriesComponent implements OnInit {
     ngOnInit(): void {}
 
     openDeliveryDialog() {
-        const dialogRef = this.dialog.open(RegisterDeliveryComponent);
+        const dialogRef = this.dialog.open(RegisterDeliveryComponent, {
+            minWidth: 300,
+        });
     }
 }

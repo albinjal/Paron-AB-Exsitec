@@ -1,8 +1,16 @@
 mat-toolbar-row {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .selected {
     text-decoration: underline;
+}
+.user {
+    font-size: small;
+}
+
+button {
+    padding: 0.3rem 0.5rem;
 }

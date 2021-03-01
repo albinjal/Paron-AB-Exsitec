@@ -1,4 +1,4 @@
-<nav>
+<nav *ngIf="auth.user$ | async">
     <mat-toolbar color="primary">
         <mat-toolbar-row>
             <span>
@@ -9,7 +9,8 @@
                     [ngClass]="{'selected': this.router.url === '/supply'}">Supply</button>
             </span>
             <span>
-                <button mat-flat-button (click)="auth.logout()" *ngIf="auth.user$ | async">Logout</button>
+                <span class="user">{{(auth.user$ | async)?.displayName}}</span>
+                <button mat-button (click)="auth.logout()">Logout</button>
             </span>
         </mat-toolbar-row>
     </mat-toolbar>
