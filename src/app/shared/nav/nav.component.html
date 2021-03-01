@@ -1,0 +1,8 @@
+<nav>
+    <mat-toolbar color="primary">
+        <mat-toolbar-row>
+            <span>Päron AB</span>
+            <span><button mat-flat-button (click)="auth.logout()" *ngIf="auth.user$ | async">Logout</button></span>
+        </mat-toolbar-row>
+    </mat-toolbar>
+</nav>

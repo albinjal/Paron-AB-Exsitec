@@ -11,6 +11,8 @@ import { MaterialModule } from './shared/material.module';
 import { DeliveriesComponent } from './features/deliveries/deliveries.component';
 import { ListDeliveriesComponent } from './features/deliveries/list-deliveries/list-deliveries.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './features/login/login.component';
+import { NavComponent } from './shared/nav/nav.component';
 
 @NgModule({
     declarations: [
@@ -18,6 +20,8 @@ import { ReactiveFormsModule } from '@angular/forms';
         RegisterDeliveryComponent,
         DeliveriesComponent,
         ListDeliveriesComponent,
+        LoginComponent,
+        NavComponent,
     ],
     imports: [
         BrowserModule,
