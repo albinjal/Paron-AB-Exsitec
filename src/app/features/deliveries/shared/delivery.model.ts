@@ -4,3 +4,8 @@ export interface SendDelivery {
     warehouse: string;
     amount: number;
 }
+export interface Delivery extends SendDelivery {
+    created: Date;
+    lastUpdate: Date;
+    id: string;
+}

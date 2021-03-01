@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { SendDelivery } from './delivery.model';
+import { Delivery, SendDelivery } from './delivery.model';
 import * as firebase from 'firebase/app';
 import 'firebase/firestore';
 
@@ -17,5 +17,13 @@ export class DeliveryService {
         return this.afs
             .collection(DeliveryService.colPath)
             .add({ ...delivery, created: timeStamp, lastUpdate: timeStamp });
+    }
+
+    listDeliveries() {
+        return this.afs
+            .collection<Delivery>(DeliveryService.colPath, (ref) =>
+                ref.orderBy('date', 'desc')
+            )
+            .valueChanges({ idField: 'id' });
     }
 }

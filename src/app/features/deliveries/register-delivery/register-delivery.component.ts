@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/shared/product.model';
 import { ProductService } from 'src/app/shared/product.service';
@@ -22,7 +23,8 @@ export class RegisterDeliveryComponent implements OnInit {
         private prodService: ProductService,
         private warehouseService: WarehouseService,
         private deliveryService: DeliveryService,
-        formBuiler: FormBuilder
+        formBuiler: FormBuilder,
+        public dialogRef: MatDialogRef<RegisterDeliveryComponent>
     ) {
         this.deliveryForm = formBuiler.group({
             warehouse: [],
@@ -48,9 +50,11 @@ export class RegisterDeliveryComponent implements OnInit {
             formValues.amount *= -1;
         }
         // Not nessecary to store anymore
+        delete formValues.outgoing;
+
         try {
-            delete formValues.outgoing;
             const res = await this.deliveryService.registerDelivery(formValues);
+            this.dialogRef.close();
         } catch {
             // TODO: add error handling
         }

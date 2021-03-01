@@ -8,7 +8,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatButtonModule } from '@angular/material/button';
 import { MatNativeDateModule } from '@angular/material/core';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
     exports: [
@@ -21,8 +23,9 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
         MatRadioModule,
         MatButtonModule,
         MatNativeDateModule,
-        MatProgressSpinnerModule
-
+        MatProgressSpinnerModule,
+        MatTableModule,
+        MatDialogModule,
     ],
 })
 export class MaterialModule {}
