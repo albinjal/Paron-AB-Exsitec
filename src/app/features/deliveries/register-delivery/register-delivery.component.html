@@ -1,26 +1,59 @@
 <section>
     <mat-card>
         <mat-card-title>Register delivery</mat-card-title>
-        <form [formGroup]="deliveryForm">
+        <form [formGroup]="deliveryForm" (ngSubmit)="submitDeliveryForm()">
             <mat-card-content>
-                <mat-form-field appearance="fill">
-                    <mat-label>Product</mat-label>
-                    <input type="text" aria-label="Product" matInput formControlName="product"
-                        [matAutocomplete]="auto">
-                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                        <mat-option *ngFor="let product of products$ | async" [value]="product.title">{{product.title}}
-                        </mat-option>
-                    </mat-autocomplete>
-                </mat-form-field>
-                <mat-form-field appearance="fill">
-                    <mat-label>Warehouse</mat-label>
-                    <input type="text" aria-label="Warehouse" matInput formControlName="warehouse"
-                        [matAutocomplete]="warehouse_auto">
-                    <mat-autocomplete autoActiveFirstOption #warehouse_auto="matAutocomplete">
-                        <mat-option *ngFor="let warehouse of warehouses$ | async" [value]="warehouse.city">{{warehouse.city}}
-                        </mat-option>
-                    </mat-autocomplete>
-                </mat-form-field>
+                <div *ngIf="loading; else formFields">
+                    <mat-spinner></mat-spinner>
+                </div>
+                <ng-template #formFields>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Product</mat-label>
+                        <input type="text" aria-label="Product" matInput formControlName="product"
+                            [matAutocomplete]="auto">
+                        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                            <mat-option *ngFor="let product of products$ | async" [value]="product.title">
+                                {{product.title}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                    <br>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Warehouse</mat-label>
+                        <input type="text" aria-label="Warehouse" matInput formControlName="warehouse"
+                            [matAutocomplete]="warehouse_auto">
+                        <mat-autocomplete autoActiveFirstOption #warehouse_auto="matAutocomplete">
+                            <mat-option *ngFor="let warehouse of warehouses$ | async" [value]="warehouse.city">
+                                {{warehouse.city}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                    <br>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Date</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="date">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                    <br>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Amount</mat-label>
+                        <!-- https://stackoverflow.com/a/55803519/10909337-->
+                        <input type="tel" aria-label="Amount" matInput formControlName="amount">
+                    </mat-form-field>
+                    <br>
+
+                    <mat-radio-group aria-label="Select an option" formControlName="outgoing">
+                        <mat-radio-button value="false">Incoming</mat-radio-button>
+                        <mat-radio-button value="true">Outgoing</mat-radio-button>
+                    </mat-radio-group>
+                    <br>
+
+                    <button mat-flat-button color="primary" type="submit">Register</button>
+                </ng-template>
             </mat-card-content>
         </form>
     </mat-card>
