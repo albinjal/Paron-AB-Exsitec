@@ -14,6 +14,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './features/login/login.component';
 import { NavComponent } from './shared/nav/nav.component';
 import { SupplyComponent } from './features/supply/supply.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { ChartsComponent } from './features/supply/charts/charts.component';
+import { ChartDataPipe } from './shared/chart-data.pipe';
+import { WarehousedetailsComponent } from './features/supply/warehousedetails/warehousedetails.component';
 
 @NgModule({
     declarations: [
@@ -24,6 +28,9 @@ import { SupplyComponent } from './features/supply/supply.component';
         LoginComponent,
         NavComponent,
         SupplyComponent,
+        ChartsComponent,
+        ChartDataPipe,
+        WarehousedetailsComponent,
     ],
     imports: [
         BrowserModule,
@@ -33,6 +40,7 @@ import { SupplyComponent } from './features/supply/supply.component';
         AngularFirestoreModule,
         MaterialModule,
         ReactiveFormsModule,
+        NgxChartsModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

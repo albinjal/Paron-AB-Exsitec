@@ -1,0 +1,7 @@
+<div>
+    <h3>{{warehouse.id}} supply:</h3>
+    <p *ngFor="let item of warehouse.amounts | keyvalue">
+        {{item.key}}: {{item.value}}
+
+    </p>
+</div>

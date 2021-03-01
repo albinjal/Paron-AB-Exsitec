@@ -1,4 +1,4 @@
 export interface Warehouse {
-    city: string;
+    amounts: Record<string, number>;
     id: string;
 }

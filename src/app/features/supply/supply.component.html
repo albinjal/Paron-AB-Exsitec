@@ -1,1 +1,26 @@
-<p>supply works!</p>
+<div class="wrapper">
+    <mat-card>
+        <section class="overview">
+            <h1>Supply Overview</h1>
+            <mat-card-content>
+                <app-charts [warehouses]="warehouses$ | async"></app-charts>
+            </mat-card-content>
+        </section>
+    </mat-card>
+    <mat-card>
+        <section class="details">
+            <h1>View details</h1>
+            <mat-form-field>
+                <mat-label>Warehouse</mat-label>
+                <mat-select (valueChange)="changeWarehouse($event)">
+                    <mat-option *ngFor="let warehouse of warehouses$ | async" [value]="warehouse">{{warehouse.id}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br>
+            <app-warehousedetails [warehouse]="selectedWarehouse" *ngIf="selectedWarehouse">
+
+            </app-warehousedetails>
+        </section>
+    </mat-card>
+</div>

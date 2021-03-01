@@ -20,8 +20,8 @@
                 <input type="text" aria-label="Warehouse" matInput formControlName="warehouse"
                     [matAutocomplete]="warehouse_auto">
                 <mat-autocomplete autoActiveFirstOption #warehouse_auto="matAutocomplete">
-                    <mat-option *ngFor="let warehouse of warehouses$ | async" [value]="warehouse.city">
-                        {{warehouse.city}}
+                    <mat-option *ngFor="let warehouse of warehouses$ | async" [value]="warehouse.id">
+                        {{warehouse.id}}
                     </mat-option>
                 </mat-autocomplete>
             </mat-form-field>

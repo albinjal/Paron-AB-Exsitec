@@ -1,0 +1,11 @@
+.overview {
+    max-width: 100%;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+mat-card-content {
+    overflow: auto;
+}

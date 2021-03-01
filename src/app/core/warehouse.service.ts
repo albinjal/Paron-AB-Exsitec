@@ -14,4 +14,5 @@ export class WarehouseService {
             .collection<Warehouse>(WarehouseService.colPath)
             .valueChanges({ idField: 'id' });
     }
+
 }
