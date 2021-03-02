@@ -7,11 +7,14 @@ import firebase from 'firebase/app';
 @Injectable({ providedIn: 'root' })
 export class AuthService {
     user$ = this.auth.authState;
+    lastUser?: firebase.User;
     constructor(
         private auth: AngularFireAuth,
         private router: Router,
         private snackBar: MatSnackBar
-    ) {}
+    ) {
+        this.user$.subscribe((value) => (this.lastUser = value));
+    }
 
     async login() {
         try {
@@ -19,7 +22,7 @@ export class AuthService {
                 new firebase.auth.GoogleAuthProvider()
             );
             this.router.navigateByUrl('/');
-            this.snackBar.open('Login success.')
+            this.snackBar.open('Login success.');
         } catch {
             // TODO: add error hand
         }

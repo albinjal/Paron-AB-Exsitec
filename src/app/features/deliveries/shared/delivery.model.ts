@@ -3,6 +3,7 @@ export interface SendDelivery {
     product: string;
     warehouse: string;
     amount: number;
+    updatedBy: string;
 }
 export interface Delivery extends SendDelivery {
     created: Date;

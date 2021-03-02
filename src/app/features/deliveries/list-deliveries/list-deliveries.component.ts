@@ -10,7 +10,7 @@ import { DeliveryService } from '../shared/delivery.service';
 })
 export class ListDeliveriesComponent implements OnInit {
     deliveries$: Observable<Delivery[]>;
-    displayedColumns = ['date', 'warehouse', 'product', 'amount'];
+    displayedColumns = ['date', 'warehouse', 'product', 'amount', 'updatedBy'];
 
     constructor(private deliveryService: DeliveryService) {}
 
